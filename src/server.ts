@@ -8,6 +8,7 @@ import connectDB from './config/db.js';
 import { errorHandler } from './middleware/error.middleware.js';
 import { apiLimiter, authLimiter } from './middleware/rateLimiter.middleware.js';
 import authRoutes from './routes/authRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 // ✅ Import your routes
 
@@ -38,7 +39,9 @@ if (process.env.NODE_ENV !== 'production') {
 await connectDB();
 
 // ✅ Routes
-app.use('/api', authRoutes); // Auth routes (with stricter rate limit)
+app.use('/api', authRoutes);
+
+app.use('/api/users', userRoutes);
 
 // ✅ Error handling middleware
 app.use(errorHandler);
