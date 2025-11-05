@@ -10,6 +10,7 @@ import { apiLimiter, authLimiter } from './middleware/rateLimiter.middleware.js'
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import productRoutes from './routes/productRoutes.js';
+import studentRoutes from './routes/studentRoutes.js';
 
 // ✅ Import your routes
 
@@ -44,6 +45,7 @@ app.use('/api', authRoutes);
 
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/students', studentRoutes);
 
 // ✅ Error handling middleware
 app.use(errorHandler);
