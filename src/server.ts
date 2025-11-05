@@ -9,6 +9,7 @@ import { errorHandler } from './middleware/error.middleware.js';
 import { apiLimiter, authLimiter } from './middleware/rateLimiter.middleware.js';
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import productRoutes from './routes/productRoutes.js';
 
 // ✅ Import your routes
 
@@ -42,6 +43,7 @@ await connectDB();
 app.use('/api', authRoutes);
 
 app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
 
 // ✅ Error handling middleware
 app.use(errorHandler);
