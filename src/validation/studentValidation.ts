@@ -1,17 +1,9 @@
 import Joi from 'joi';
 
-/**
- * 🧮 Generate valid class list (1A–10F)
- * e.g., "1A", "1B", ..., "10F"
- */
 const validClasses: string[] = Array.from({ length: 10 }, (_, i) =>
   ['A', 'B', 'C', 'D', 'E', 'F'].map((div) => `${i + 1}${div}`),
 ).flat();
 
-/**
- * 🧠 CREATE Student Validation Schema
- * Enforces full student object validation.
- */
 export const createStudentValidation = Joi.object({
   name: Joi.string()
     .pattern(/^[A-Za-z]+(\s[A-Za-z]+)*$/)
@@ -43,10 +35,6 @@ export const createStudentValidation = Joi.object({
     }),
 });
 
-/**
- * 🛠 UPDATE Student Validation Schema
- * Allows partial updates, but requires at least one field.
- */
 export const studentUpdateValidation = Joi.object({
   name: Joi.string()
     .pattern(/^[A-Za-z]+(\s[A-Za-z]+)*$/)
@@ -75,9 +63,6 @@ export const studentUpdateValidation = Joi.object({
     'object.min': 'At least one field must be provided for update',
   });
 
-/**
- * ✅ Optional helper (for middleware use)
- */
 export type StudentValidationType = {
   name?: string;
   marks?: number;

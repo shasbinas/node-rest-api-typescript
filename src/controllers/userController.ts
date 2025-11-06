@@ -7,7 +7,6 @@ export const getUsers = async (req: Request, res: Response, next: NextFunction):
   try {
     const query: Record<string, unknown> = {};
 
-    // Age filter (convert to number safely)
     if (req.query.age) {
       const age = Number(req.query.age);
       if (!isNaN(age)) {
@@ -15,7 +14,6 @@ export const getUsers = async (req: Request, res: Response, next: NextFunction):
       }
     }
 
-    // Role filter (case-insensitive & trimmed)
     if (req.query.role && typeof req.query.role === 'string') {
       query.role = { $regex: new RegExp(`^${req.query.role.trim()}$`, 'i') };
     }

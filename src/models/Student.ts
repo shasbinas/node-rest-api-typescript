@@ -34,11 +34,6 @@ const studentSchema = new Schema<IStudent>(
   },
 );
 
-/**
- * ===========================
- * 🚀 Model Creation
- * ===========================
- */
 const Student: Model<IStudent> = model<IStudent>('Student', studentSchema);
 
 export default Student;

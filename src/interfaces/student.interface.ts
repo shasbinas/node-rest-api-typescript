@@ -10,9 +10,6 @@ export interface StudentRequestBody {
   class: string;
 }
 
-/**
- * 🧩 Interface for query parameters
- */
 export interface StudentQuery {
   class?: string;
 }

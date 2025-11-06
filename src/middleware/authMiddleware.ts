@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
-// ✅ Extend Express Request type to include `user`
 declare global {
   namespace Express {
     interface Request {
@@ -16,9 +15,8 @@ declare global {
   }
 }
 
-// ✅ Middleware: Verify JWT token
 export const verifyToken = (req: Request, res: Response, next: NextFunction): void | Response => {
-  const authHeader = req.headers.authorization; // e.g. "Bearer <token>"
+  const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     return res.status(401).json({ message: 'Unauthorized: No token provided' });
@@ -33,14 +31,13 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction): vo
       admin: boolean;
     };
 
-    req.user = decoded; // attach decoded info to request
+    req.user = decoded;
     next();
   } catch (error) {
     return res.status(403).json({ message: 'Invalid or expired token' });
   }
 };
 
-// ✅ Middleware: Admin only access
 export const verifyAdmin = (req: Request, res: Response, next: NextFunction): void | Response => {
   verifyToken(req, res, () => {
     if (req.user?.admin) {
@@ -51,7 +48,6 @@ export const verifyAdmin = (req: Request, res: Response, next: NextFunction): vo
   });
 };
 
-// ✅ Middleware: Any authenticated user
 export const verifyUser = (req: Request, res: Response, next: NextFunction): void | Response => {
   verifyToken(req, res, () => next());
 };

@@ -8,7 +8,6 @@ import {
   IUserDocument,
 } from '../interfaces/user.interface.js';
 
-// ✅ POST /api/register
 export const registerUser = async (
   req: Request<{}, {}, RegisterRequestBody>,
   res: Response,
@@ -54,7 +53,6 @@ export const registerUser = async (
   }
 };
 
-// ✅ POST /api/login
 export const loginUser = async (
   req: Request<{}, {}, LoginRequestBody>,
   res: Response,

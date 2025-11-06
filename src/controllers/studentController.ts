@@ -3,9 +3,6 @@ import mongoose from 'mongoose';
 import Student from '../models/Student.js';
 import { StudentQuery, StudentRequestBody } from '../interfaces/student.interface.js';
 
-/** ========================================
- * ✅ Add Student (POST /api/students)
- * ======================================== */
 export const addStudent = async (
   req: Request<{}, {}, StudentRequestBody>,
   res: Response,
@@ -31,10 +28,6 @@ export const addStudent = async (
   }
 };
 
-/** ========================================
- * ✅ Get All Students (GET /api/students)
- * Optional query: ?class=10A
- * ======================================== */
 export const getStudents = async (
   req: Request<{}, {}, {}, StudentQuery>,
   res: Response,
@@ -54,9 +47,6 @@ export const getStudents = async (
   }
 };
 
-/** ========================================
- * ✅ Get Student Marks (GET /api/students/:id/marks)
- * ======================================== */
 export const getStudentMarks = async (
   req: Request<{ id: string }>,
   res: Response,
@@ -82,9 +72,6 @@ export const getStudentMarks = async (
   }
 };
 
-/** ========================================
- * ✅ Update Student (PATCH /api/students/:id)
- * ======================================== */
 export const updateStudent = async (
   req: Request<{ id: string }, {}, Partial<StudentRequestBody>>,
   res: Response,
@@ -119,9 +106,6 @@ export const updateStudent = async (
   }
 };
 
-/** ========================================
- * ✅ Delete Student (DELETE /api/students/:id)
- * ======================================== */
 export const deleteStudent = async (
   req: Request<{ id: string }>,
   res: Response,

@@ -12,13 +12,11 @@ import userRoutes from './routes/userRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 import studentRoutes from './routes/studentRoutes.js';
 
-// ✅ Import your routes
-
 dotenv.config();
 
 const app = express();
 
-// ✅ Middleware
+//  Middleware
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,30 +25,30 @@ app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 app.use(compression());
 
-// ✅ Apply general rate limiter (protects all API routes)
+//  Apply general rate limiter (protects all API routes)
 app.use(apiLimiter);
 
-// ✅ Logging
+//  Logging
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));
 } else {
   app.use(morgan('combined')); // Better logging for production
 }
 
-// ✅ Connect to MongoDB
+//  Connect to MongoDB
 await connectDB();
 
-// ✅ Routes
+//  Routes
 app.use('/api', authRoutes);
 
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/students', studentRoutes);
 
-// ✅ Error handling middleware
+// Error handling middleware
 app.use(errorHandler);
 
-// ✅ Start server
+//  Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
   console.log(`🚀 Server running on port ${PORT} in ${process.env.NODE_ENV} mode`),

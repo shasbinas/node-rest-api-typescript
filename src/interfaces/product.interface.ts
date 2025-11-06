@@ -6,7 +6,6 @@ export interface IProduct extends Document {
   publisher?: string;
   isbn?: string;
   stock?: number;
-  // createdBy?: mongoose.Types.ObjectId;
 }
 
 export interface ProductRequestBody {

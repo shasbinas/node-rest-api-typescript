@@ -3,9 +3,6 @@ import mongoose from 'mongoose';
 import Product from '../models/Product.js';
 import { ProductRequestBody } from '../interfaces/product.interface.js';
 
-/** ==========================================
- * ✅ Add Product (POST /api/products)
- * ========================================== */
 export const addProduct = async (
   req: Request<{}, {}, ProductRequestBody>,
   res: Response,
@@ -35,10 +32,6 @@ export const addProduct = async (
   }
 };
 
-/** ==========================================
- * ✅ Get Products (GET /api/products)
- * Optional filters: category, minPrice, maxPrice
- * ========================================== */
 export const getProducts = async (
   req: Request,
   res: Response,
@@ -68,9 +61,6 @@ export const getProducts = async (
   }
 };
 
-/** ==========================================
- * ✅ Update Product (PUT /api/products/:id)
- * ========================================== */
 export const updateProduct = async (
   req: Request<{ id: string }, {}, Partial<ProductRequestBody>>,
   res: Response,
@@ -100,9 +90,6 @@ export const updateProduct = async (
   }
 };
 
-/** ==========================================
- * ✅ Delete Product (DELETE /api/products/:id)
- * ========================================== */
 export const deleteProduct = async (
   req: Request<{ id: string }>,
   res: Response,

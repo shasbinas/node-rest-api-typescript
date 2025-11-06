@@ -5,7 +5,6 @@ import { registerValidation } from '../validation/auth.validation.js';
 
 const authRoutes = express.Router({ mergeParams: true });
 
-// ✅ POST /api/register
 authRoutes.post('/register', validate(registerValidation), registerUser);
 
 authRoutes.post('/login', loginUser);
