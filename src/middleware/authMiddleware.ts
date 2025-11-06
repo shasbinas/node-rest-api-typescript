@@ -33,7 +33,8 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction): vo
 
     req.user = decoded;
     next();
-  } catch (error) {
+  } catch (err) {
+    console.log(err);
     return res.status(403).json({ message: 'Invalid or expired token' });
   }
 };
