@@ -115,10 +115,10 @@ Server will run on:
 ## 🌍 Live Demo
 
 🚀 **Deployed on Render:**  
-
-You can test all available endpoints directly via the Postman collection below.
+[https://node-rest-api-typescript.onrender.com](https://node-rest-api-typescript.onrender.com)
 
 ---
+
 ## 🧱 API Modules Overview
 
 ### 🔐 Auth Routes — `/api/auth`
@@ -156,5 +156,16 @@ You can test all available endpoints directly via the Postman collection below.
 | `PATCH` | `/:id` | Update student details |
 | `DELETE` | `/:id` | Delete student record |
 ---
+## 🧑‍💻 Scripts
+
+| Command | Description |
+|----------|--------------|
+| `npm run dev` | Start development server with watch mode |
+| `npm run build` | Compile TypeScript files |
+| `npm start` | Run compiled app (production) |
+| `npm run lint` | Lint all TypeScript files |
+| `npm run lint:fix` | Fix lint errors automatically |
+| `npm run format` | Format code with Prettier |
+
 
 If you like this project, **please ⭐ star the repo!**
